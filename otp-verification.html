@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verify Your Identity — 444 Store</title>
+  <meta name="theme-color" content="#0b0b0d">
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="preloader" aria-hidden="true"><div class="preloader-mark"><span>4</span><span>4</span><span>4</span></div><div class="preloader-bar"></div></div>
+
+  <div class="auth-layout">
+    <div class="auth-visual">
+      <div class="hero-numeral" aria-hidden="true">444</div>
+      <a href="index.html" class="logo" style="color:var(--c-ivory); position:relative; z-index:2;">444<small>Store</small></a>
+      <blockquote class="auth-visual-quote">"One more step. Security is part of how we look after every member of the 444 community."<span>— The 444 Store Studio, Accra</span></blockquote>
+    </div>
+
+    <div class="auth-form-side">
+      <div class="auth-box">
+        <h1>Verify your identity.</h1>
+        <p class="sub">We've sent a 4-digit verification code to <strong>you&#8203;@email.com</strong>. Enter it below to continue.</p>
+
+        <form data-auth-form="reset-password.html">
+          <div class="otp-inputs">
+            <input type="text" inputmode="numeric" maxlength="1" required autofocus>
+            <input type="text" inputmode="numeric" maxlength="1" required>
+            <input type="text" inputmode="numeric" maxlength="1" required>
+            <input type="text" inputmode="numeric" maxlength="1" required>
+          </div>
+          <button type="submit" class="btn btn--primary btn--block" style="margin-bottom: var(--space-6);">Verify Code <span class="btn-arrow">→</span></button>
+          <p class="otp-resend">Didn't get a code? <button type="button" id="otpResendBtn" disabled>Resend</button> <span id="otpTimer">(45s)</span></p>
+        </form>
+
+        <p class="auth-foot"><a href="login.html">← Back to Sign In</a></p>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

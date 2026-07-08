@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout — 444 Store</title>
+  <meta name="theme-color" content="#0b0b0d">
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="preloader" aria-hidden="true"><div class="preloader-mark"><span>4</span><span>4</span><span>4</span></div><div class="preloader-bar"></div></div>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <header class="site-header" id="siteHeader">
+    <div class="nav-inner">
+      <a href="index.html" class="logo">444<small>Store</small></a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="index.html">Home</a><a href="shop.html">Shop</a><a href="shop.html#collections">Collections</a><a href="about.html">About</a><a href="contact.html">Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <a href="cart.html" class="icon-btn" aria-label="Back to bag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M6 6h15l-1.5 9h-12z"/><path d="M6 6L4 3H2"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg><span class="count js-cart-count" style="display:none;">0</span></a>
+        <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-menu">
+    <div class="mobile-menu-links"><a href="index.html">Home</a><a href="shop.html">Shop</a><a href="cart.html">Bag</a></div>
+  </div>
+
+  <main id="main">
+    <section class="section" id="checkoutPage">
+      <div class="container">
+        <div style="text-align:center; margin-bottom: var(--space-8);">
+          <span class="eyebrow" style="justify-content:center;">Secure Checkout</span>
+          <h1 class="display-2">Complete Your Order.</h1>
+        </div>
+
+        <p class="field-hint" id="checkoutEmptyNotice" style="display:none; text-align:center; margin-bottom: var(--space-6); color:var(--c-rust);">Your bag looks empty — you can still preview checkout, but you'll need items in your bag to place a real order. <a href="shop.html" style="text-decoration:underline;">Continue shopping</a>.</p>
+
+        <!-- ==================== STEP INDICATOR ==================== -->
+        <div class="checkout-steps">
+          <div class="checkout-step is-active"><span class="num">1</span><span class="label">Shipping</span></div>
+          <span class="checkout-step-sep"></span>
+          <div class="checkout-step"><span class="num">2</span><span class="label">Delivery</span></div>
+          <span class="checkout-step-sep"></span>
+          <div class="checkout-step"><span class="num">3</span><span class="label">Payment</span></div>
+          <span class="checkout-step-sep"></span>
+          <div class="checkout-step"><span class="num">4</span><span class="label">Review</span></div>
+        </div>
+
+        <div class="checkout-layout">
+          <div>
+            <!-- ==================== STEP 1: SHIPPING + BILLING ==================== -->
+            <div class="checkout-panel is-active" id="stepShipping">
+              <h3>Shipping Details</h3>
+              <div class="field-grid">
+                <div class="field"><label for="firstName">First Name</label><input type="text" id="firstName" required></div>
+                <div class="field"><label for="lastName">Last Name</label><input type="text" id="lastName" required></div>
+              </div>
+              <div class="field-grid">
+                <div class="field"><label for="email">Email Address</label><input type="email" id="email" required></div>
+                <div class="field"><label for="phone">Phone Number</label><input type="tel" id="phone" placeholder="+233" required></div>
+              </div>
+              <div class="field"><label for="address">Street Address</label><input type="text" id="address" placeholder="House number, street, landmark" required></div>
+              <div class="field-grid">
+                <div class="field"><label for="city">City / Town</label><input type="text" id="city" required></div>
+                <div class="field">
+                  <label for="region">Region</label>
+                  <select id="region" required>
+                    <option value="">Select region</option>
+                    <option>Greater Accra</option>
+                    <option>Ashanti</option>
+                    <option>Western</option>
+                    <option>Eastern</option>
+                    <option>Central</option>
+                    <option>Northern</option>
+                  </select>
+                </div>
+              </div>
+              <label class="checkbox-row" style="margin-bottom:1.5rem;">
+                <input type="checkbox" checked><span>Billing address is the same as shipping address</span>
+              </label>
+              <div class="checkout-nav">
+                <span></span>
+                <button class="btn btn--primary" data-next-step>Continue to Delivery <span class="btn-arrow">→</span></button>
+              </div>
+            </div>
+
+            <!-- ==================== STEP 2: DELIVERY ==================== -->
+            <div class="checkout-panel" id="stepDelivery">
+              <h3>Delivery Options</h3>
+              <div class="delivery-options">
+                <label class="option-card is-active" data-delivery="standard">
+                  <input type="radio" name="delivery" checked>
+                  <svg class="option-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 10h15l3 3v3h-7z"/><rect x="1" y="6" width="15" height="7"/><circle cx="6" cy="18" r="2"/><circle cx="18" cy="18" r="2"/></svg>
+                  <div class="option-card-info"><h5>Standard Delivery</h5><p>2–4 business days nationwide</p></div>
+                  <span class="option-card-price">GH₵ 25–60</span>
+                </label>
+                <label class="option-card" data-delivery="express">
+                  <input type="radio" name="delivery">
+                  <svg class="option-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M13 2L3 14h7l-1 8 11-14h-7z"/></svg>
+                  <div class="option-card-info"><h5>Express Delivery</h5><p>Same-day within Accra, next-day nationwide</p></div>
+                  <span class="option-card-price">GH₵ 60</span>
+                </label>
+                <label class="option-card" data-delivery="pickup">
+                  <input type="radio" name="delivery">
+                  <svg class="option-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 9l9-6 9 6v10a1 1 0 0 1-1 1h-4v-7H8v7H4a1 1 0 0 1-1-1z"/></svg>
+                  <div class="option-card-info"><h5>Studio Pickup</h5><p>Osu, Accra — ready in 2 hours</p></div>
+                  <span class="option-card-price">Free</span>
+                </label>
+              </div>
+              <div class="checkout-nav">
+                <button class="btn btn--outline" data-prev-step>← Back</button>
+                <button class="btn btn--primary" data-next-step>Continue to Payment <span class="btn-arrow">→</span></button>
+              </div>
+            </div>
+
+            <!-- ==================== STEP 3: PAYMENT ==================== -->
+            <div class="checkout-panel" id="stepPayment">
+              <h3>Payment Method</h3>
+              <div class="payment-options">
+                <label class="option-card is-active" data-payment="card">
+                  <input type="radio" name="payment" checked>
+                  <svg class="option-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
+                  <div class="option-card-info"><h5>Debit / Credit Card</h5><p>Visa, Mastercard</p></div>
+                </label>
+                <label class="option-card" data-payment="momo">
+                  <input type="radio" name="payment">
+                  <svg class="option-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M10 18h4"/></svg>
+                  <div class="option-card-info"><h5>Mobile Money</h5><p>MTN, Telecel, AirtelTigo</p></div>
+                </label>
+                <label class="option-card" data-payment="cod">
+                  <input type="radio" name="payment">
+                  <svg class="option-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M9 12h6M12 9v6"/></svg>
+                  <div class="option-card-info"><h5>Cash on Delivery</h5><p>Pay when your order arrives</p></div>
+                </label>
+              </div>
+
+              <div class="payment-detail-fields" data-payment-fields="card">
+                <div class="field-grid">
+                  <div class="field" style="grid-column:1/-1;"><label for="cardNumber">Card Number</label><input type="text" id="cardNumber" placeholder="0000 0000 0000 0000"></div>
+                  <div class="field"><label for="cardExpiry">Expiry Date</label><input type="text" id="cardExpiry" placeholder="MM/YY"></div>
+                  <div class="field"><label for="cardCvv">CVV</label><input type="text" id="cardCvv" placeholder="123"></div>
+                </div>
+              </div>
+              <div class="payment-detail-fields" data-payment-fields="momo" style="display:none;">
+                <div class="field"><label for="momoNumber">Mobile Money Number</label><input type="tel" id="momoNumber" placeholder="+233"></div>
+              </div>
+              <div class="payment-detail-fields" data-payment-fields="cod" style="display:none;">
+                <p class="field-hint">Pay in cash to our rider upon delivery. Please have the exact amount ready.</p>
+              </div>
+
+              <p class="field-hint" style="margin-top:1rem;">This is a demonstration checkout — no real payment will be processed.</p>
+
+              <div class="checkout-nav">
+                <button class="btn btn--outline" data-prev-step>← Back</button>
+                <button class="btn btn--primary" data-next-step>Review Order <span class="btn-arrow">→</span></button>
+              </div>
+            </div>
+
+            <!-- ==================== STEP 4: REVIEW ==================== -->
+            <div class="checkout-panel" id="stepReview">
+              <h3>Review &amp; Place Order</h3>
+              <p class="field-hint" style="margin-bottom:1.5rem;">Please confirm your details are correct. By placing this order, you agree to our <a href="terms.html" style="text-decoration:underline;">Terms of Service</a>.</p>
+              <div class="checkout-nav">
+                <button class="btn btn--outline" data-prev-step>← Back</button>
+                <button class="btn btn--gold" id="placeOrderBtn">Place Order <span class="btn-arrow">→</span></button>
+              </div>
+            </div>
+
+            <!-- ==================== CONFIRMATION ==================== -->
+            <div class="checkout-panel" id="stepConfirmation">
+              <div class="confirmation-panel">
+                <div class="confirmation-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>
+                </div>
+                <h2>Order Confirmed.</h2>
+                <p>Thank you for shopping 444 Store. A confirmation email is on its way, and your rider will reach out before delivery.</p>
+                <p class="confirmation-order-id" id="confirmationOrderId">Order #444-000000</p>
+                <div class="confirmation-actions">
+                  <a href="shop.html" class="btn btn--outline">Continue Shopping</a>
+                  <a href="index.html" class="btn btn--primary">Back to Home</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ==================== ORDER SUMMARY SIDEBAR ==================== -->
+          <div class="summary-card">
+            <h3>Order Summary</h3>
+            <div class="order-summary-mini" id="miniOrderList"></div>
+            <div class="divider" style="margin-bottom: var(--space-4);"></div>
+            <div class="summary-row"><span>Subtotal</span><span class="val" id="coSubtotal">GH₵ 0.00</span></div>
+            <div class="summary-row"><span>Shipping</span><span class="val" id="coShipping">GH₵ 0.00</span></div>
+            <div class="summary-row total"><span>Total</span><span class="val" id="coTotal">GH₵ 0.00</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" style="padding-top: var(--space-7);">
+    <div class="container">
+      <div class="footer-bottom" style="border-top:none; padding-top:0;">
+        <p>© <span data-year>2026</span> 444 Store. All rights reserved. Designed in Accra.</p>
+        <div class="footer-payments"><span>VISA</span><span>MTN MOMO</span><span>PAYSTACK</span></div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="overlay-scrim" data-close-drawer></div>
+  <aside class="drawer" id="cartDrawer" aria-label="Shopping bag">
+    <div class="drawer-head"><h3>Your Bag</h3><button class="icon-btn" data-close-drawer aria-label="Close bag"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+    <div class="drawer-body" id="cartDrawerBody"></div>
+    <div class="drawer-foot" id="cartDrawerFoot">
+      <div class="summary-row total"><span>Subtotal</span><span class="val" id="cartDrawerSubtotal">GH₵ 0.00</span></div>
+      <a href="cart.html" class="btn btn--outline btn--block" style="margin-bottom:.75rem;">View Bag</a>
+      <a href="checkout.html" class="btn btn--primary btn--block">Checkout <span class="btn-arrow">→</span></a>
+    </div>
+  </aside>
+
+  <script src="script.js"></script>
+</body>
+</html>

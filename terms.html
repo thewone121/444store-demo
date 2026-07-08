@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms of Service — 444 Store</title>
+  <meta name="theme-color" content="#0b0b0d">
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="preloader" aria-hidden="true"><div class="preloader-mark"><span>4</span><span>4</span><span>4</span></div><div class="preloader-bar"></div></div>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <header class="site-header" id="siteHeader">
+    <div class="nav-inner">
+      <a href="index.html" class="logo">444<small>Store</small></a>
+      <nav class="nav-links" aria-label="Primary navigation"><a href="index.html">Home</a><a href="shop.html">Shop</a><a href="shop.html#collections">Collections</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav>
+      <div class="nav-actions">
+        <a href="login.html" class="icon-btn" aria-label="Account"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4.5 5-6 8-6s6.5 1.5 8 6"/></svg></a>
+        <button class="icon-btn" data-open="cart" aria-label="Shopping bag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M6 6h15l-1.5 9h-12z"/><path d="M6 6L4 3H2"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg><span class="count js-cart-count" style="display:none;">0</span></button>
+        <button class="nav-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+  <div class="mobile-menu"><div class="mobile-menu-links"><a href="index.html">Home</a><a href="shop.html">Shop</a><a href="about.html">About</a><a href="contact.html">Contact</a></div></div>
+
+  <main id="main">
+    <section class="page-banner">
+      <div class="container">
+        <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="index.html">Home</a><span>/</span><span>Terms of Service</span></nav>
+        <h1 class="display-2">Terms of Service.</h1>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container" style="max-width:800px;">
+        <p style="color:var(--text-muted); margin-bottom:var(--space-7);">Last updated: January 2026. By accessing or purchasing from 444 Store, you agree to the following terms.</p>
+
+        <h3 style="margin-bottom: var(--space-3);">1. Orders &amp; Payment</h3>
+        <p style="color:var(--text-muted); margin-bottom: var(--space-6);">All prices are listed in Ghanaian Cedis (GH₵) and include applicable taxes unless stated otherwise. We reserve the right to refuse or cancel any order due to stock errors, pricing errors, or suspected fraud, in which case a full refund will be issued.</p>
+
+        <h3 style="margin-bottom: var(--space-3);">2. Product Availability</h3>
+        <p style="color:var(--text-muted); margin-bottom: var(--space-6);">Limited-run collections such as Heritage Edition and 444 Vol. II — Guardian are produced in restricted quantities. Availability is not guaranteed and stock may sell out without notice.</p>
+
+        <h3 style="margin-bottom: var(--space-3);">3. Shipping</h3>
+        <p style="color:var(--text-muted); margin-bottom: var(--space-6);">Delivery timeframes shown at checkout are estimates. 444 Store is not liable for delays caused by circumstances outside our control, including courier delays or incorrect delivery information provided at checkout.</p>
+
+        <h3 style="margin-bottom: var(--space-3);">4. Returns &amp; Exchanges</h3>
+        <p style="color:var(--text-muted); margin-bottom: var(--space-6);">Returns and exchanges are governed by our separate <a href="returns.html" style="text-decoration:underline;">Returns &amp; Exchanges Policy</a>, which forms part of these Terms.</p>
+
+        <h3 style="margin-bottom: var(--space-3);">5. Intellectual Property</h3>
+        <p style="color:var(--text-muted); margin-bottom: var(--space-6);">All designs, logos, photography and content on this site are the property of 444 Store and may not be reproduced without written permission.</p>
+
+        <h3 style="margin-bottom: var(--space-3);">6. Limitation of Liability</h3>
+        <p style="color:var(--text-muted); margin-bottom: var(--space-6);">444 Store is not liable for indirect or consequential losses arising from use of this website or our products, to the fullest extent permitted by Ghanaian law.</p>
+
+        <h3 style="margin-bottom: var(--space-3);">7. Governing Law</h3>
+        <p style="color:var(--text-muted); margin-bottom:0;">These Terms are governed by the laws of the Republic of Ghana. Any disputes will be subject to the exclusive jurisdiction of the courts of Accra.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom" style="border-top:1px solid var(--c-line-light); padding-top:var(--space-6);">
+        <p>© <span data-year>2026</span> 444 Store. All rights reserved. Designed in Accra.</p>
+        <div class="footer-payments"><span>VISA</span><span>MTN MOMO</span><span>PAYSTACK</span></div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="overlay-scrim" data-close-drawer></div>
+  <aside class="drawer" id="cartDrawer" aria-label="Shopping bag">
+    <div class="drawer-head"><h3>Your Bag</h3><button class="icon-btn" data-close-drawer aria-label="Close bag"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+    <div class="drawer-body" id="cartDrawerBody"></div>
+    <div class="drawer-foot" id="cartDrawerFoot">
+      <div class="summary-row total"><span>Subtotal</span><span class="val" id="cartDrawerSubtotal">GH₵ 0.00</span></div>
+      <a href="cart.html" class="btn btn--outline btn--block" style="margin-bottom:.75rem;">View Bag</a>
+      <a href="checkout.html" class="btn btn--primary btn--block">Checkout <span class="btn-arrow">→</span></a>
+    </div>
+  </aside>
+
+  <script src="script.js"></script>
+</body>
+</html>
