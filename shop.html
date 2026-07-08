@@ -26,7 +26,6 @@
       <nav class="nav-links" aria-label="Primary navigation">
         <a href="index.html">Home</a>
         <a href="shop.html" class="is-active">Shop</a>
-        <a href="shop.html#collections">Collections</a>
         <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
       </nav>
@@ -54,7 +53,6 @@
     <div class="mobile-menu-links">
       <a href="index.html">Home</a>
       <a href="shop.html">Shop</a>
-      <a href="shop.html#collections">Collections</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
       <a href="login.html">Login</a>
@@ -194,7 +192,7 @@
           <li><a href="shop.html?cat=Tops">Tops</a></li>
           <li><a href="shop.html?cat=Bottoms">Bottoms</a></li>
           <li><a href="shop.html?cat=Outerwear">Outerwear</a></li>
-          <li><a href="shop.html?collection=Guardian">New Arrivals</a></li>
+          <li><a href="shop.html?sort=newest">New Arrivals</a></li>
         </ul></div>
         <div class="footer-col"><h4>Company</h4><ul>
           <li><a href="about.html">Our Story</a></li>
@@ -231,7 +229,7 @@
         <a href="shop.html?q=hoodie" class="btn btn--sm btn--outline">Hoodies</a>
         <a href="shop.html?q=cargo" class="btn btn--sm btn--outline">Cargo Pants</a>
         <a href="shop.html?q=cap" class="btn btn--sm btn--outline">Caps</a>
-        <a href="shop.html?collection=Guardian" class="btn btn--sm btn--outline">444 Vol. II — Guardian</a>
+        <a href="shop.html?sort=newest" class="btn btn--sm btn--outline">444 Vol. II — Guardian</a>
       </div>
     </div>
   </form>
@@ -260,7 +258,7 @@
 
   <script src="script.js"></script>
   <script>
-    // Prefill category/collection filters from URL query params (?cat=, ?collection=)
+    // Prefill category/sort filters from URL query params (?cat=, ?sort=)
     document.addEventListener('DOMContentLoaded', () => {
       const params = new URLSearchParams(window.location.search);
       const cat = params.get('cat');
@@ -273,12 +271,6 @@
         const map = { newest: 'newest', popular: 'popular' };
         const select = document.getElementById('sortSelect');
         if (select && map[sort]) { select.value = map[sort]; select.dispatchEvent(new Event('change')); }
-      }
-      const collection = params.get('collection');
-      if (collection) {
-        const names = { Guardian: '444 Vol. II', Heritage: 'Heritage Edition', Foundation: 'The Foundation' };
-        const input = document.getElementById('shopSearchInput');
-        if (input && names[collection]) { input.value = names[collection]; input.dispatchEvent(new Event('input')); }
       }
     });
   </script>
