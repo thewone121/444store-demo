@@ -134,7 +134,7 @@
 
   const Cart = {
     get() { try { return JSON.parse(localStorage.getItem(CART_KEY)) || []; } catch (e) { return []; } },
-    save(items) { localStorage.setItem(CART_KEY, JSON.stringify(items)); Cart.renderBadge(); },
+    save(items) { try { localStorage.setItem(CART_KEY, JSON.stringify(items)); } catch (e) { /* storage unavailable — fail silently */ } Cart.renderBadge(); },
     add(product, qty, size, color) {
       const items = Cart.get();
       const existing = items.find(i => i.id === product.id && i.size === size && i.color === color);
@@ -165,7 +165,7 @@
 
   const Wishlist = {
     get() { try { return JSON.parse(localStorage.getItem(WISH_KEY)) || []; } catch (e) { return []; } },
-    save(ids) { localStorage.setItem(WISH_KEY, JSON.stringify(ids)); Wishlist.renderBadge(); },
+    save(ids) { try { localStorage.setItem(WISH_KEY, JSON.stringify(ids)); } catch (e) { /* storage unavailable — fail silently */ } Wishlist.renderBadge(); },
     has(id) { return Wishlist.get().includes(id); },
     toggle(id) {
       let ids = Wishlist.get();
@@ -1034,7 +1034,9 @@
     if (!wrap) return;
 
     const items = Cart.get();
-    if (!items.length && !sessionStorage.getItem('444_order_complete')) {
+    let orderAlreadyComplete = false;
+    try { orderAlreadyComplete = !!sessionStorage.getItem('444_order_complete'); } catch (e) { /* storage unavailable */ }
+    if (!items.length && !orderAlreadyComplete) {
       // No items — send back to cart rather than showing an empty checkout.
       const emptyNotice = $('#checkoutEmptyNotice');
       if (emptyNotice) emptyNotice.style.display = 'block';
@@ -1112,7 +1114,7 @@
     // Place order
     on($('#placeOrderBtn'), 'click', () => {
       const orderId = '444-' + Math.floor(100000 + Math.random() * 899999);
-      sessionStorage.setItem('444_order_complete', orderId);
+      try { sessionStorage.setItem('444_order_complete', orderId); } catch (e) { /* storage unavailable — order still confirms visually */ }
       $('#confirmationOrderId').textContent = `Order #${orderId}`;
       $$('.checkout-panel').forEach(p => p.classList.remove('is-active'));
       $('#stepConfirmation').classList.add('is-active');
